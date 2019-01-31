@@ -1,16 +1,18 @@
 class CashRegister
-  attr_accessor :total, :discount, :items
+  attr_accessor :total, :discount, :items, :transaction_list
   
   def initialize(discount = 0)
     @total = 0 
     @discount = discount
     @items = []
+    @transaction_list = []
   end
   
   def add_item(title, price, quantity = 1)
     i = 0
     loop do 
     self.items << title
+    self.transaction_list << price 
     i += 1 
       if i >= quantity 
         break
